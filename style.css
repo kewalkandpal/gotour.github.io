@@ -1,110 +1,113 @@
 *{
-	margin:0;
-	padding:0;
+	margin:0px;
+	padding:0px;
 	box-sizing: border-box;
 	scroll-behavior: smooth;
 	font-family: 'Roboto', sans-serif;
 }
 
 html {
-	
 	scroll-behavior: smooth;
   }
+body{
+	overflow-x: hidden;
+}
   
 ::-webkit-scrollbar{
-	background-color:#eee;
-	width:18px;
+	background-color: black;
 }
 ::-webkit-scrollbar-thumb{
-	background:linear-gradient(rgb(253, 7, 89), rgb(240, 225, 19));
+	background:white;
 	border-radius: 15px;
 	height:70px;	
 }
-::-webkit-scrollbar-thumb:hover{
-	background:linear-gradient(rgb(240, 225, 19), rgb(253, 7, 89));
-}
+
  			 /* NavBar */ 
 
-.navbars{
-	position: fixed;
-	width:100vw;
-	padding: 10px;
+nav{
+	width:100%;
+    height:100px;
+    background-color: transparent;
+    position: fixed;
 	z-index: 999;
-	display:flex;
-	justify-content: space-around;
-	align-items: center;
-	background-color: transparent;
-	color:black;	
+	transition: 0.3s;
 }
-.navbars.navClr{
-	width:100vw;
-	z-index: 999;
-	padding: 10px;
-	background-color: black;
-	transition: 0.5s;
+nav.bgChange{
+	background-color: white;
+	border-bottom: 1px solid #ddd;
 }
-.brandTitle{
-	font-size: 40px;
-	font-weight: bold;
-	letter-spacing: 4px;
-	font-family: 'Oswald', sans-serif;
-	color:rgb(238, 116, 59);
-}
-.brandTitle:hover{
+nav .logo{
+	float:left;
+	line-height: 100px;
+	font-size: 35px;
+	font-weight: 500;
+	padding:0px 100px;
 	color:rgb(248, 92, 19);
 }
-.navbarLinks.active{
-	display: block;
+nav ul{
+    float:right;
+    margin-right:100px;
 }
-.navbarLinks ul{
-	margin:0;
-	padding: 0;
-	display: flex;
-}
-.navbarLinks ul li{
+nav ul li{
+	display: inline-block;
+    margin:0px 15px;
+    line-height: 100px;
 	list-style: none;
 }
-.navbarLinks ul li a{
+nav ul li a{
 	text-decoration: none;
+	font-size: 20px;
+	text-transform: uppercase;   
 	color:rgb(248, 92, 19);
-	padding:5px 20px;
-	font-weight: bold;
-	font-size: 18px;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	font-family: 'Oswald', sans-serif;
-
+	position: relative;
 }
-.navbarLinks ul li a:hover{
-	background-color:rgb(248, 92, 19);
-	color:white;
+nav ul li a:hover{
+	color:black;
 }
-
-.toggleBtn{
+nav ul li a::after{
+	content: "";
 	position: absolute;
-	border: none;
-	background-color: transparent;
-	top:25px;
-	right:30px;
+	top:-2px;
+	left: 0;
+	width: 100%;
+	border-top: 2px solid rgb(248, 92, 19);
+	transform-origin: left;
+	transform:scale(0);
+	transition: 0.4s;
+}
+nav ul li a::before{
+	content: "";
+	position: absolute;
+	bottom:-2px;
+	left: 0;
+	width: 100%;
+	border-top: 2px solid rgb(248, 92, 19);
+	transform-origin: right;
+	transform:scale(0);
+	transition: 0.4s;
+}
+nav ul li a:hover::after{
+	transform:scale(1);
+}
+nav ul li a:hover::before{
+	transform-origin: right;
+	transform:scale(1);
+}
+nav .toggleBtn{
+	float: right;
+	line-height: 115px;
+	margin-right: 50px;
+	color:rgb(248, 92, 19);
 	display: none;
-	animation: myanim 1s linear infinite;	
 }
-@keyframes myanim {
-	0%{
-		transform: scale(0.8);
-	}
-	50%{
-		transform: scale(1.2);
-	}
-	100%{
-		transform: scale(0.8);
-	}
-}
-.toggleBtn .fa{
-	color:rgb(248, 142, 2);
-}
+
 
 			/* Sliding */
+
+#slidingOne{
+	width:100%;
+	height:100vh;
+}
 .carousel .carousel-indicators{
 	margin:80px;
 }
@@ -112,13 +115,14 @@ html {
 	background-size: cover;
 	background-position: 100% 100%;
 	background-repeat: no-repeat;
+	width: 100%;
 	height:100vh;
 	position: relative;
 }
 .carousel-item .carousel-content{
 	position: absolute;
-	left:10%;
-	bottom: 150px;
+	left:5%;
+	bottom: 180px;
 }
 .carousel-content .carouselTitle{
 	color:white;
@@ -210,7 +214,8 @@ html {
 }
 .expTitle{
 	font-weight: bold;
-	color:purple;
+	color:rgb(248, 92, 19);
+	text-shadow: 1px 1px 1px black;
 	font-family: 'Oswald', sans-serif;
 
 }
@@ -276,7 +281,7 @@ html {
 .aboutUs .sectionName{	
 	text-align: center;
 	line-height: 150px;
-	color:yellow;
+	color:white;
 	font-weight: bold;
 	font-size: 50px;
 	text-shadow: 1px 1px 2px white;
@@ -296,7 +301,8 @@ html {
 	text-align: left;
 	font-weight: bold;
 	letter-spacing: 2px;
-	color:purple;
+	color:rgb(248, 92, 19);
+	text-shadow: 1px 1px 1px black;
 	font-family: 'Oswald', sans-serif;
 
 }
@@ -315,7 +321,6 @@ html {
 		/* Our Team */
 
 .ourTeam{
-	width:100%;
 	background: url(nainital/teambackimg.jpg);
 	background-position: 100% 100%;
 	background-size: cover;
@@ -328,7 +333,8 @@ html {
 	font-weight: bold;
 	letter-spacing: 2px;
 	text-transform: uppercase;
-	color:purple;
+	color:rgb(248, 92, 19);
+	text-shadow: 1px 1px 1px black;
 	font-family: 'Oswald', sans-serif;
 
 }
@@ -359,11 +365,11 @@ html {
 .ourTeam .card-footer .fa{
 	margin-left: 1px;
 	cursor: pointer;
-	color:rgb(240, 119, 210);
+	color:rgb(253, 7, 89);
 	transition: 0.3s; 
 }
 .ourTeam .card-footer .fa:hover{
-	color:rgb(233, 20, 180);
+	color:rgba(255, 4, 87, 0.842);
 	transition: 0.3s;
 }
 
@@ -372,7 +378,6 @@ html {
 
 .clients{
 	margin-top: 60px;
-	width:100%;
 	padding:50px 0px;
 	background: url(nainital/client.jpg);
 	background-size: cover;
@@ -385,9 +390,9 @@ html {
 	letter-spacing: 2px;
 	text-transform: uppercase;
 	text-align: center;
-	color:yellow;
+	color:rgb(248, 92, 19);
 	font-size: 35px;
-	text-shadow: 1px 1px 2px black;
+	text-shadow: 1px 1px 3px black;
 	font-family: 'Oswald', sans-serif;
 
 }
@@ -400,7 +405,7 @@ html {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color:rgb(233, 20, 180);
+	color: rgb(253, 7, 89);
 	margin-bottom: 5px;
 }
 .clients .box .clientContent{
@@ -415,7 +420,6 @@ html {
 
 .paralex{
 	 margin-top: 40px;
-	 width:100%;
  	 height:400px;
  	 background: url(nainital/paralex.jpg);
  	 background-position: 100% 80%;
@@ -449,7 +453,7 @@ html {
 .services .serviceBanner .sectionName{
 	text-align: center;
 	line-height: 150px;
-	color:yellow;
+	color:white;
 	font-weight: bold;
 	font-size: 50px;
 	text-shadow: 1px 1px 2px white;
@@ -478,15 +482,13 @@ html {
 .services .serviceTitle{
     text-align: center;
     font-weight: bold;
-    color:purple;
+	color:rgb(248, 92, 19);
     text-transform: uppercase;
     padding-top: 30px;
 	margin-bottom: 20px;
     letter-spacing: 2px;
 	font-family: 'Oswald', sans-serif;
 	font-size: 30px;
-	text-shadow: 0px 0px 4px white;
-
 }
 .services .serviceContent{
     text-align: center;
@@ -508,18 +510,16 @@ html {
 }
 .services .serviceTitle2{
     text-align: center;
-    color:white;
+	color:rgb(248, 92, 19);
     text-transform: uppercase;
-    text-shadow: 4px 4px 10px black;
     letter-spacing: 2px;
 	font-family: 'Oswald', sans-serif;
-
 }
 .services .service-icon{
     display:flex;
     justify-content: center;
     align-items: center;
-	color:rgb(233, 20, 180);
+	color: rgb(253, 7, 89);
 }
 .services .serviceBooking{
 	color:white;
@@ -534,10 +534,10 @@ html {
 	width:150px;
 	height:100px;
 	border-radius: 50%;
-	background-color:rgb(248, 248, 162);
+	background-color:rgb(248, 92, 19);
     text-align: center;
 	line-height: 100px;
-	color:purple;
+	color:white;
     font-weight: bold;
 }
 
@@ -556,7 +556,7 @@ html {
 .tourBanner .sectionName{
 	text-align: center;
 	line-height: 150px;
-	color:yellow;
+	color:white;
 	font-weight: bold;
 	font-size: 50px;
 	text-shadow: 1px 1px 2px white;
@@ -571,12 +571,13 @@ html {
 	height:250px;
 	transition: 0.5s;
 }
+
 .tourExplore:hover .tourImg img{
 	transform: scale(1.2);
 	transition: 0.5s;
 }
 .tourContent .tourCost{
-	color:red;
+	color:rgb(248, 92, 19);
 }
 .tourContent .tourLine{
 	text-decoration: line-through;
@@ -604,7 +605,7 @@ html {
 .contact .sectionName{	
 	text-align: center;
 	line-height: 150px;
-	color:yellow;
+	color:white;
 	font-weight: bold;
 	font-size: 50px;
 	text-shadow: 1px 1px 2px white;
@@ -649,7 +650,7 @@ html {
 {
 	top:-25px;
 	left:12px;
-	color:purple;
+	color:rgb(248, 92, 19);
 	font-size: 18px;
 }
 .contactBtn{
@@ -697,7 +698,8 @@ html {
 	font-size: 18px;
 }
 .address h4{
-	color:white;
+	color:rgb(248, 92, 19);
+	text-shadow: 0px 0px 1px blue;
 	text-align: left;
 	letter-spacing: 1px;
 	font-weight: bold;
@@ -739,7 +741,7 @@ html {
 }
 .footer-content .footerHeading{
 	margin-bottom: 20px;
-	color:purple;
+	color:rgb(248, 92, 19);
 	text-transform: capitalize;
 	font-weight: bold;
 	font-family: 'Oswald', sans-serif;
@@ -810,49 +812,70 @@ html {
 .backToTop .fa:hover{
 	background-color: white;
 	color:rgb(253, 7, 89);
+	border:1px solid rgb(253, 7, 89);
 }
 
 
 
 		/*  Responsive Code */
 
-@media only screen and (max-width:991px){
-		.toggleBtn{
-			display: block;
-		}
-		.navbars{
-			flex-direction: column;
-			align-items: flex-start;
-			background-color:white;
-		}
-		.navbarLinks{
-			display: none;
-			width:100%;
-			
-		}
-		.navbarLinks ul{
-			flex-direction: column;
-		}
 
-		.navbarLinks li{
-			text-align: center;
-			margin-top: 10px;
-		}
-		.expImages{
-			margin-top: 10px;
-		}
+@media only screen and (max-width:991px){
+	nav .logo{
+		font-size: 35px;
+		padding:0px 50px;
+	}
+
+.expImages{
+	margin-top: 10px;
 }
+}
+
 @media only screen and (max-width:768px){
-	.brandTitle{
-		font-size: 32px;
+
+	nav{
+		background-color: rgb(255, 73, 41);
 	}
-	.toggleBtn{
-		top:22px;
-		font-size: 15px;
+	nav .logo{
+		padding:0px 30px;
 	}
-	.navbarLinks ul li a{
-		font-size: 16px;
+	nav .logo , nav .toggleBtn{
+		color:black;
 	}
+	nav ul{
+		position: fixed;
+        top:100px;
+        width:0%;
+        overflow-x: hidden;
+        height:100vh;
+		background-color: rgb(253, 84, 54);
+        transition: all 0.3s linear;
+		opacity: 0;
+	}
+	nav ul.toggel{
+		opacity: 1;
+		width:100%;
+	}
+	nav ul li{
+		margin-top: 15px;
+		padding-top: 10px;
+		display: block;
+		line-height: 50px;
+		text-align: center;
+		margin-left: 0px;
+	}
+	nav ul li a{
+		color:white;
+		font-size: 18px;
+	}
+	nav ul li a::after , nav ul li a::before {
+		border-top: 2px solid white;
+
+	}
+	nav .toggleBtn{
+		display: block;
+	}
+
 	.carousel-content{
 		bottom: 200px;
 	}
@@ -984,12 +1007,12 @@ html {
 		font-size:40px;
 	}
 	.services .serviceBooking{
-		font-size: 17px;
+		font-size: 16px;
 	}
 	.services .count{
 		margin:5px;
-		width:89px;
-		height:89px;
+		width:88px;
+		height:88px;
 		line-height: 89px;
 	}
 	.tour{
@@ -1046,7 +1069,6 @@ html {
 	}
 	.footer{
 		margin-top: 100px;
-		background-color: black;
 		height:auto;
 	}
 	.footer .footerImg{
