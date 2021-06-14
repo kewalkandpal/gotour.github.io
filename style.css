@@ -39,10 +39,14 @@ nav.bgChange{
 nav .logo{
 	float:left;
 	line-height: 100px;
+	padding:0px 100px;
+
+}
+nav .logo a{
 	font-size: 35px;
 	font-weight: 500;
-	padding:0px 100px;
 	color:rgb(248, 92, 19);
+	text-decoration: none;
 }
 nav ul{
     float:right;
@@ -699,7 +703,7 @@ nav .toggleBtn{
 }
 .address h4{
 	color:rgb(248, 92, 19);
-	text-shadow: 0px 0px 1px blue;
+	text-shadow: 0px 0px 3px blue;
 	text-align: left;
 	letter-spacing: 1px;
 	font-weight: bold;
